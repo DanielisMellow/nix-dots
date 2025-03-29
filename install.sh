@@ -26,16 +26,35 @@ echo "🔗 Linking .config folders..."
 for dir in "$DOTFILES_DIR/.config/"*; do
     name=$(basename "$dir")
     target="$CONFIG_DIR/$name"
+
+    # Remove real folders (not symlinks)
+    if [ -e "$target" ] && [ ! -L "$target" ]; then
+        echo "🧼 Removing existing $target (real directory)..."
+        rm -rf "$target"
+    fi
+
     echo " ⤷ $name → $target"
-    mkdir -p "$(dirname "$target")"
     ln -sfn "$dir" "$target"
 done
 
 # ───────────────
-# 🔗 Link top-level dotfiles
+# 🔗 Link .tmux.conf
 # ───────────────
-echo "🔗 Linking .tmux.conf and .icons..."
+echo "🔗 Linking .tmux.conf..."
+if [ -e "$HOME/.tmux.conf" ] && [ ! -L "$HOME/.tmux.conf" ]; then
+    echo "🧼 Removing existing ~/.tmux.conf (real file)..."
+    rm -f "$HOME/.tmux.conf"
+fi
 ln -sfn "$DOTFILES_DIR/.tmux.conf" "$HOME/.tmux.conf"
+
+# ───────────────
+# 🔗 Link .icons
+# ───────────────
+echo "🎨 Linking .icons..."
+if [ -e "$HOME/.icons" ] && [ ! -L "$HOME/.icons" ]; then
+    echo "🧼 Removing existing ~/.icons (real directory)..."
+    rm -rf "$HOME/.icons"
+fi
 ln -sfn "$DOTFILES_DIR/.icons" "$HOME/.icons"
 
 # ───────────────
@@ -59,5 +78,5 @@ cp -r "$DOTFILES_DIR/wallpapers/"* "$PICTURES_DIR/" 2>/dev/null || echo "⚠️ 
 # ✅ Done
 # ───────────────
 echo ""
-echo "✅ Dotfiles setup complete!"
+echo "✅ nix-dots setup complete!"
 echo "👉 Open tmux and press prefix + I to install plugins"
