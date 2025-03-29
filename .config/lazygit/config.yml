@@ -1,0 +1,10 @@
+gui:
+  showIcons: true
+  theme:
+    activeBorderColor:
+      - cyan
+      - bold
+    inactiveBorderColor:
+      - black
+  nerdFontsVersion: "3"
+

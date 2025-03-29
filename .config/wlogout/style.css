@@ -1,0 +1,70 @@
+/* ----------- 💫 https://github.com/JaKooLit 💫 -------- */
+/* wallust-wlogout */
+
+/* Importing wallust colors */
+@import '../../.config/waybar/wallust/colors-waybar.css';
+
+window {
+    font-family: JetBrainsMono;
+    font-size: 24pt;
+    color: #cdd6f4; /* text */
+    background-color: rgba(30, 30, 45, 0.5);
+
+
+}
+
+
+button {
+    min-width: 100px;  /* Adjust this to your desired width */
+    min-height: 100px; /* Adjust this to your desired height */
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-position: center;
+    background-size: 32%;
+    background-color: rgba(255, 255, 255, 0);
+    animation: gradient_f 25s ease-in infinite;
+    border-radius: 96px;
+    border: 0px;
+}
+
+button:focus {
+    background-size: 64%;
+	border: 0px;
+
+}
+
+button:hover {
+    background-color: @color7;
+    color: #1e1e2e;
+    background-size: 64%;
+    margin: 32px;
+    border-radius: 96px;
+    transition: all 0.3s cubic-bezier(.55, 0.0, .28, 1.682), box-shadow 0s ease-in-out, background-color 0.2s ease-in-out;
+    box-shadow: 0 0 0px @color7;
+    border: 0px;
+	
+}
+
+/* Adjust the size of the icon or content inside the button */
+button span {
+    font-size: 2em; /* Increase the font size */
+}
+
+/* Use relative paths (assuming ./icons is next to this CSS file) */
+#lock:hover        { background-image: image(url("./icons/lock.png")); }
+#lock              { background-image: image(url("./icons/lock_hover.png")); }
+
+#logout:hover      { background-image: image(url("./icons/logout.png")); }
+#logout            { background-image: image(url("./icons/logout_hover.png")); }
+
+#suspend:hover     { background-image: image(url("./icons/sleep.png")); }
+#suspend           { background-image: image(url("./icons/sleep_hover.png")); }
+
+#shutdown:hover    { background-image: image(url("./icons/power.png")); }
+#shutdown          { background-image: image(url("./icons/power_hover.png")); }
+
+#reboot:hover      { background-image: image(url("./icons/restart.png")); }
+#reboot            { background-image: image(url("./icons/restart_hover.png")); }
+
+#hibernate:hover   { background-image: image(url("./icons/hibernate.png")); }
+#hibernate         { background-image: image(url("./icons/hibernate_hover.png")); }
