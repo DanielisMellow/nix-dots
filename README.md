@@ -11,7 +11,7 @@ This repo manages my terminal environment, Hyprland desktop config, dev tools, a
 
 ```bash
 bash <(curl -sL https://raw.githubusercontent.com/DanielisMellow/nix-dots/main/install.sh)
-
+```
 ## 🛠️ Manual Installation
 
 Prefer not to use `curl`? You can clone and run the installer manually:
@@ -20,3 +20,4 @@ Prefer not to use `curl`? You can clone and run the installer manually:
 git clone https://github.com/DanielisMellow/nix-dots ~/.nix-dots
 cd ~/.nix-dots
 bash install.sh
+```
